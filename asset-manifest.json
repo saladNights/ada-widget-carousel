@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/ada-widget-carousel/static/css/main.34d075d4.chunk.css",
-    "main.js": "/ada-widget-carousel/static/js/main.cc258c26.chunk.js",
-    "main.js.map": "/ada-widget-carousel/static/js/main.cc258c26.chunk.js.map",
+    "main.css": "/ada-widget-carousel/static/css/main.f60de459.chunk.css",
+    "main.js": "/ada-widget-carousel/static/js/main.dcecd193.chunk.js",
+    "main.js.map": "/ada-widget-carousel/static/js/main.dcecd193.chunk.js.map",
     "runtime-main.js": "/ada-widget-carousel/static/js/runtime-main.6e5f0277.js",
     "runtime-main.js.map": "/ada-widget-carousel/static/js/runtime-main.6e5f0277.js.map",
     "static/css/2.e5559355.chunk.css": "/ada-widget-carousel/static/css/2.e5559355.chunk.css",
-    "static/js/2.37ad816f.chunk.js": "/ada-widget-carousel/static/js/2.37ad816f.chunk.js",
-    "static/js/2.37ad816f.chunk.js.map": "/ada-widget-carousel/static/js/2.37ad816f.chunk.js.map",
+    "static/js/2.eada7a49.chunk.js": "/ada-widget-carousel/static/js/2.eada7a49.chunk.js",
+    "static/js/2.eada7a49.chunk.js.map": "/ada-widget-carousel/static/js/2.eada7a49.chunk.js.map",
     "index.html": "/ada-widget-carousel/index.html",
-    "precache-manifest.271c903371252ef3f80b94eb93d19972.js": "/ada-widget-carousel/precache-manifest.271c903371252ef3f80b94eb93d19972.js",
+    "precache-manifest.63165eb2e8bda88b37c95bd8594ade33.js": "/ada-widget-carousel/precache-manifest.63165eb2e8bda88b37c95bd8594ade33.js",
     "service-worker.js": "/ada-widget-carousel/service-worker.js",
     "static/css/2.e5559355.chunk.css.map": "/ada-widget-carousel/static/css/2.e5559355.chunk.css.map",
-    "static/css/main.34d075d4.chunk.css.map": "/ada-widget-carousel/static/css/main.34d075d4.chunk.css.map",
-    "static/js/2.37ad816f.chunk.js.LICENSE.txt": "/ada-widget-carousel/static/js/2.37ad816f.chunk.js.LICENSE.txt",
-    "static/media/no-img.svg": "/ada-widget-carousel/static/media/no-img.c3fbefb0.svg",
+    "static/css/main.f60de459.chunk.css.map": "/ada-widget-carousel/static/css/main.f60de459.chunk.css.map",
+    "static/js/2.eada7a49.chunk.js.LICENSE.txt": "/ada-widget-carousel/static/js/2.eada7a49.chunk.js.LICENSE.txt",
+    "static/media/App.module.scss": "/ada-widget-carousel/static/media/arrow.bbe8140f.svg",
     "static/media/slick-theme.css": "/ada-widget-carousel/static/media/slick.f97e3bbf.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.6e5f0277.js",
     "static/css/2.e5559355.chunk.css",
-    "static/js/2.37ad816f.chunk.js",
-    "static/css/main.34d075d4.chunk.css",
-    "static/js/main.cc258c26.chunk.js"
+    "static/js/2.eada7a49.chunk.js",
+    "static/css/main.f60de459.chunk.css",
+    "static/js/main.dcecd193.chunk.js"
   ]
 }
