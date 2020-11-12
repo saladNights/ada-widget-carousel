@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "49514efd791906003bf3af18024c855c",
+    "revision": "ccf91fbb2964098d7ac8c867f1de297b",
     "url": "/ada-widget-carousel/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ada-widget-carousel/static/css/2.e5559355.chunk.css"
   },
   {
-    "revision": "64047ef8155fdd901f30",
-    "url": "/ada-widget-carousel/static/css/main.d94b360e.chunk.css"
+    "revision": "087afedbd84d3e171ec6",
+    "url": "/ada-widget-carousel/static/css/main.8e88c422.chunk.css"
   },
   {
     "revision": "50169a863d2ec0bfce15",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ada-widget-carousel/static/js/2.eada7a49.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "64047ef8155fdd901f30",
+    "revision": "087afedbd84d3e171ec6",
     "url": "/ada-widget-carousel/static/js/main.438f1301.chunk.js"
   },
   {
