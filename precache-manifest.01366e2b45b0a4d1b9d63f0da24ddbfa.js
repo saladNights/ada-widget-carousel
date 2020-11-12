@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ccf91fbb2964098d7ac8c867f1de297b",
+    "revision": "5ff2b7b655037bb256d37c9180fdb1ff",
     "url": "/ada-widget-carousel/index.html"
   },
   {
-    "revision": "50169a863d2ec0bfce15",
+    "revision": "4767df6171fbd3ffdc55",
     "url": "/ada-widget-carousel/static/css/2.e5559355.chunk.css"
   },
   {
-    "revision": "087afedbd84d3e171ec6",
-    "url": "/ada-widget-carousel/static/css/main.8e88c422.chunk.css"
+    "revision": "799b5bdb950c245b8c1e",
+    "url": "/ada-widget-carousel/static/css/main.7ffac9c0.chunk.css"
   },
   {
-    "revision": "50169a863d2ec0bfce15",
-    "url": "/ada-widget-carousel/static/js/2.eada7a49.chunk.js"
+    "revision": "4767df6171fbd3ffdc55",
+    "url": "/ada-widget-carousel/static/js/2.bf18e007.chunk.js"
   },
   {
     "revision": "1ca5336a68bfe67001e8c21888e299b9",
-    "url": "/ada-widget-carousel/static/js/2.eada7a49.chunk.js.LICENSE.txt"
+    "url": "/ada-widget-carousel/static/js/2.bf18e007.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "087afedbd84d3e171ec6",
-    "url": "/ada-widget-carousel/static/js/main.438f1301.chunk.js"
+    "revision": "799b5bdb950c245b8c1e",
+    "url": "/ada-widget-carousel/static/js/main.05fd60d1.chunk.js"
   },
   {
     "revision": "6cecf5204ca83eed4723",
