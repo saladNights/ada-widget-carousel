@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5c25ebed9ffd44991bb3f8b66cd308b9",
+    "revision": "c10d2cef20fedb1345a5d244e1b5783c",
     "url": "/ada-widget-carousel/index.html"
   },
   {
-    "revision": "4767df6171fbd3ffdc55",
+    "revision": "1222036e57b6f99110ce",
     "url": "/ada-widget-carousel/static/css/2.e5559355.chunk.css"
   },
   {
-    "revision": "8a41c697775b8231339d",
+    "revision": "377e1560eb42a86ad7d4",
     "url": "/ada-widget-carousel/static/css/main.7ebd34e2.chunk.css"
   },
   {
-    "revision": "4767df6171fbd3ffdc55",
-    "url": "/ada-widget-carousel/static/js/2.bf18e007.chunk.js"
+    "revision": "1222036e57b6f99110ce",
+    "url": "/ada-widget-carousel/static/js/2.a9dc18eb.chunk.js"
   },
   {
     "revision": "1ca5336a68bfe67001e8c21888e299b9",
-    "url": "/ada-widget-carousel/static/js/2.bf18e007.chunk.js.LICENSE.txt"
+    "url": "/ada-widget-carousel/static/js/2.a9dc18eb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8a41c697775b8231339d",
-    "url": "/ada-widget-carousel/static/js/main.b6b3ca2f.chunk.js"
+    "revision": "377e1560eb42a86ad7d4",
+    "url": "/ada-widget-carousel/static/js/main.fb0941cf.chunk.js"
   },
   {
     "revision": "6cecf5204ca83eed4723",
