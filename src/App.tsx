@@ -8,7 +8,9 @@ import { combineMerge } from './helpers';
 
 import { ACTION_TYPE_POSTBACK, ACTION_TYPE_LINK } from './constants';
 
-import { CarouselData, CarouselItem, widgetEvent } from './types';
+import { CarouselData, widgetEvent } from './types';
+
+import noImg from './no-img.png';
 import styles from './App.module.scss';
 
 const AdaWidgetSDK = require('@ada-support/ada-widget-sdk');
@@ -28,6 +30,8 @@ interface State {
   isActive: boolean;
   selectedAction: string | undefined;
   errors: string[];
+  slideImgError: number | undefined;
+  centerMode: boolean;
 }
 
 class App extends Component<unknown, State> {
@@ -38,22 +42,16 @@ class App extends Component<unknown, State> {
     isActive: false,
     selectedAction: undefined,
     errors: [],
+    slideImgError: undefined,
+    centerMode: false,
   };
 
   componentDidMount() {
     this.initWidget();
   }
 
-  componentDidUpdate(prevProps: Readonly<unknown>, prevState: Readonly<State>, snapshot?: any) {
-    const { errors } = this.state;
-
-    if (!widgetSDK.widgetIsActive && prevState.isActive) {
-      console.error(mapErrorMessagesToIds.initFail);
-      this.setState((prevState) => ({
-        isActive: false,
-        errors: [...prevState.errors, mapErrorMessagesToIds.initFail],
-      }));
-    }
+  componentDidUpdate(prevProps: Readonly<unknown>, prevState: Readonly<State>) {
+    const { carouselData, errors } = this.state;
 
     if (errors.length !== prevState.errors.length) {
       if (widgetSDK.widgetIsActive) {
@@ -62,6 +60,20 @@ class App extends Component<unknown, State> {
             selectedItem: null,
             errorMessage: errors,
           },
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
+          () => {},
+        );
+      }
+    }
+
+    if (!prevState.carouselData?.items.length && carouselData?.items.length) {
+      const readOnly = carouselData.items.some((item) => {
+        return !item.actions.some((action) => action.type === 'postback');
+      });
+
+      if (readOnly) {
+        widgetSDK.sendUserData(
+          {},
           // eslint-disable-next-line @typescript-eslint/no-empty-function
           () => {},
         );
@@ -82,6 +94,7 @@ class App extends Component<unknown, State> {
         switch (event.type) {
           case 'WIDGET_INITIALIZED': {
             this.setState({ isLoadingData: true });
+
             if (event.metaData.items_url) {
               // API Url
               axios.get(event.metaData.items_url).then((response) => {
@@ -95,6 +108,12 @@ class App extends Component<unknown, State> {
               this.setState({
                 isLoadingData: false,
                 carouselData: JSON.parse(event.metaData.items_json),
+              });
+            } else if (event.metaData.items_base64) {
+              // base 64
+              this.setState({
+                isLoadingData: false,
+                carouselData: JSON.parse(atob(event.metaData.items_base64)),
               });
             } else if (Object.keys(event.metaData).find((key) => key.includes('items'))) {
               // User Params
@@ -123,19 +142,44 @@ class App extends Component<unknown, State> {
           case 'WIDGET_INITIALIZATION_FAILED': {
             console.error(mapErrorMessagesToIds.initFail);
             this.setState((prevState) => ({
-              isActive: false,
               errors: [...prevState.errors, mapErrorMessagesToIds.initFail],
             }));
           }
         }
       });
     } catch (e) {
-      this.setState({ isInitializing: false });
       console.error(mapErrorMessagesToIds.errorGetData, e);
+
       this.setState((prevState) => ({
-        isActive: false,
+        isInitializing: false,
         errors: [...prevState.errors, mapErrorMessagesToIds.errorGetData],
       }));
+
+      this.loadFromUrl();
+    }
+  };
+
+  loadFromUrl = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const base64data = urlParams.get('base64data');
+
+    if (base64data) {
+      const data: CarouselData = JSON.parse(window.atob(base64data));
+
+      if (data.items.length) {
+        this.setState({
+          isLoadingData: false,
+          isActive: true,
+          carouselData: data,
+        });
+      } else {
+        console.error('invalid data');
+
+        this.setState({
+          isLoadingData: false,
+          isActive: false,
+        });
+      }
     }
   };
 
@@ -178,46 +222,88 @@ class App extends Component<unknown, State> {
     }
   };
 
+  onImgError = (index: number) => {
+    this.setState({
+      slideImgError: index,
+    });
+  };
+
+  beforeChangeHandle = (oldIndex: number, newIndex: number) => {
+    setTimeout(() => {
+      if (newIndex === 0) {
+        this.setState({ centerMode: false });
+      } else {
+        this.setState({ centerMode: true });
+      }
+    }, 200);
+  };
+
   render() {
-    const { carouselData, isInitializing, isLoadingData, isActive, selectedAction } = this.state;
-    const sliderSettings = {
-      accessibility: true,
-      infinite: false,
-      slidesToShow: carouselData?.items && (carouselData?.items as CarouselItem[]).length > 1 ? 1.1 : 1,
-    };
+    const {
+      carouselData,
+      isInitializing,
+      isLoadingData,
+      isActive,
+      selectedAction,
+      slideImgError,
+      centerMode,
+    } = this.state;
 
     return (
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} ${carouselData?.items.length === 1 && styles.wrapperSingleItem}`}>
         {(isInitializing || isLoadingData) && (
           <div className={styles.loader}>
             <div className={styles.loadingSpinner} />
           </div>
         )}
         {!isActive && <div className={styles.inactive} />}
-        <Slider {...sliderSettings}>
-          {carouselData?.items.map((slide) => {
+        <Slider
+          accessibility={true}
+          infinite={false}
+          slidesToShow={1}
+          slidesToScroll={1}
+          centerMode={centerMode}
+          variableWidth={true}
+          beforeChange={this.beforeChangeHandle}
+        >
+          {carouselData?.items.map((slide, index) => {
             return (
-              <div key={slide.id || slide.title}>
+              <div key={slide.id || slide.title} className={styles.slideWrapper} style={{ width: 254 }}>
                 <div className={styles.slide}>
-                  <div className={styles.media}>
-                    <img className={styles.img} src={slide.mediaurl} alt={slide.title} />
-                  </div>
+                  {slide.mediaurl && (
+                    <div className={styles.media}>
+                      {slideImgError === index ? (
+                        <img className={styles.img} src={noImg} alt="broken url" />
+                      ) : (
+                        <img
+                          className={styles.img}
+                          src={slide.mediaurl}
+                          alt={slide.title}
+                          onError={() => this.onImgError(index)}
+                        />
+                      )}
+                    </div>
+                  )}
                   <div className={styles.info}>
                     <h3 className={styles.title}>{slide.title}</h3>
                     <p className={styles.description}>{slide.description}</p>
                   </div>
                   <div className={styles.actions}>
-                    {slide.actions.map((action) => (
-                      <button
-                        key={action.text}
-                        className={`${styles.action} ${
-                          selectedAction && selectedAction === action.payload && styles.activeBtn
-                        }`}
-                        onClick={() => this.onActionClickHandler(action.type, action.payload, action.uri)}
-                      >
-                        {action.text}
-                      </button>
-                    ))}
+                    {slide.actions.map((action) => {
+                      return (
+                        action && (
+                          <button
+                            key={action.text}
+                            className={`${styles.action} ${
+                              selectedAction && selectedAction === action.payload && styles.activeBtn
+                            }`}
+                            onClick={() => this.onActionClickHandler(action.type, action.payload, action.uri)}
+                          >
+                            {action.text}
+                          </button>
+                        )
+                      );
+                    })}
                   </div>
                 </div>
               </div>

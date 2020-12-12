@@ -1,6 +1,6 @@
 export type CarouselItemAction = {
   text: string;
-  type: string;
+  type: 'postback' | 'link';
   payload?: string;
   uri?: string;
 };
