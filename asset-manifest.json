@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ada-widget-carousel/static/css/main.7ebd34e2.chunk.css",
-    "main.js": "/ada-widget-carousel/static/js/main.b350afb9.chunk.js",
-    "main.js.map": "/ada-widget-carousel/static/js/main.b350afb9.chunk.js.map",
+    "main.js": "/ada-widget-carousel/static/js/main.12354d94.chunk.js",
+    "main.js.map": "/ada-widget-carousel/static/js/main.12354d94.chunk.js.map",
     "runtime-main.js": "/ada-widget-carousel/static/js/runtime-main.6e5f0277.js",
     "runtime-main.js.map": "/ada-widget-carousel/static/js/runtime-main.6e5f0277.js.map",
     "static/css/2.e5559355.chunk.css": "/ada-widget-carousel/static/css/2.e5559355.chunk.css",
     "static/js/2.a9dc18eb.chunk.js": "/ada-widget-carousel/static/js/2.a9dc18eb.chunk.js",
     "static/js/2.a9dc18eb.chunk.js.map": "/ada-widget-carousel/static/js/2.a9dc18eb.chunk.js.map",
     "index.html": "/ada-widget-carousel/index.html",
-    "precache-manifest.755e5f3b26a78eb4697c233bbf22fcc6.js": "/ada-widget-carousel/precache-manifest.755e5f3b26a78eb4697c233bbf22fcc6.js",
+    "precache-manifest.072b9473a1fc159d804249b08691b43c.js": "/ada-widget-carousel/precache-manifest.072b9473a1fc159d804249b08691b43c.js",
     "service-worker.js": "/ada-widget-carousel/service-worker.js",
     "static/css/2.e5559355.chunk.css.map": "/ada-widget-carousel/static/css/2.e5559355.chunk.css.map",
     "static/css/main.7ebd34e2.chunk.css.map": "/ada-widget-carousel/static/css/main.7ebd34e2.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.e5559355.chunk.css",
     "static/js/2.a9dc18eb.chunk.js",
     "static/css/main.7ebd34e2.chunk.css",
-    "static/js/main.b350afb9.chunk.js"
+    "static/js/main.12354d94.chunk.js"
   ]
 }
